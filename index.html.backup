@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Rena Rör - Professionell avloppsspolning och rensning. Spolbil snabbt på plats. Jour dygnet runt.">
+    <title>Rena Rör - Avloppsspolning & Rensning | Spolbil 24/7</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="renaror-images/logo-isolated.png">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #40576e;
+            --primary-blue-dark: #2e4050;
+            --accent-red: #c00;
+            --accent-red-dark: #a00;
+            --text-dark: #333;
+            --text-light: #666;
+            --border-gray: #eee;
+            --bg-light: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            line-height: 1.4em;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 800;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* NAVIGATION */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            height: 70px;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .nav-container {
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            max-height: 50px;
+            width: auto;
+            background: transparent;
+        }
+
+        .logo-text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-left: 15px;
+            height: 50px;
+            width: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 400;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-blue);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+            color: #fff !important;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 15px rgba(64, 87, 110, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(64, 87, 110, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-red-dark));
+            color: #fff !important;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(204, 0, 0, 0.4);
+        }
+
+        /* MOBILE MENU */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-blue);
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* HERO */
+        .hero {
+            margin-top: 70px;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(64, 87, 110, 0.8), rgba(46, 64, 80, 0.9)),
+                url('renaror-images/hero-spolbil.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-rating {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        /* SERVICES GRID */
+        .services {
+            padding: 80px 20px;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid var(--border-gray);
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+            border-radius: 10px;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 15px rgba(64, 87, 110, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .service-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .service-link:hover {
+            text-decoration: underline;
+            transform: translateX(5px);
+        }
+
+        /* IMAGE + TEXT SECTION */
+        .image-text-section {
+            padding: 80px 20px;
+            background: var(--bg-light);
+        }
+
+        .image-text-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .image-text-grid img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .image-text-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        .text-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .text-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-red);
+            color: #fff;
+            padding: 18px 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(204, 0, 0, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-red-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(204, 0, 0, 0.4);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary-blue);
+            padding: 18px 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            border: 3px solid #fff;
+            cursor: pointer;
+        }
+
+        .cta-secondary:hover {
+            background: transparent;
+            color: #fff;
+        }
+
+        /* MODAL STYLES */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: fadeInUp 0.4s ease-out;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-red);
+            background: var(--bg-light);
+        }
+
+        .modal h2 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .modal p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--border-gray);
+            border-radius: 5px;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: var(--accent-red);
+        }
+
+        .error-message {
+            color: var(--accent-red);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(64, 87, 110, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(64, 87, 110, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            display: none;
+            background: #4caf50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .success-message.active {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2a2a2a;
+            color: #fff;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1100px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+                gap: 15px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .image-text-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="renaror-images/logo-new.png" alt="Rena Rör">
+                <span class="logo-text">Rena Rör</span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#tjanster">Tjänster</a></li>
+                <li><a href="#om-oss">Om oss</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="tel:070-710 44 80" class="nav-phone">📞 070-710 44 80</a></li>
+                <li><a onclick="openInquiryModal()" class="btn-primary">Skicka förfrågan</a></li>
+                <h2 class="section-title">Våra Tjänster</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🚛</div>
+                        <h3>Högtrycksspolning</h3>
+                        <p>Modern spolbil med högtrycksutrustning för effektiv rensning av avloppssystem.</p>
+                        <a href="#" class="service-link">Läs mer →</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">📹</div>
+                        <h3>Kamerakontroll</h3>
+                        <p>TV-inspektion av dina avloppsrör med HD-kamera. Vi identifierar skador innan de blir akuta.
+                        </p>
+                        <a href="#" class="service-link">Läs mer →</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🏢</div>
+                        <h3>BRF & Företag</h3>
+                        <p>Specialiserade lösningar för bostadsrättsföreningar och företag.</p>
+                        <a href="#" class="service-link">Läs mer →</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>Akutjour 24/7</h3>
+                        <p>Jour dygnet runt, alla dagar. Vi kommer snabbt när det är som mest akut.</p>
+                        <a href="#" class="service-link">Läs mer →</a>
+                    </div>
+                </div>
+        </div>
+        </section>
+
+        <!-- IMAGE + TEXT SECTION 1 -->
+        <section class="image-text-section" id="om-oss">
+            <div class="image-text-grid">
+                <img src="renaror-images/spolbil-action.png" alt="Spolbil">
+                <div class="text-content">
+                    <h2>Metoder som ökar livslängden på avloppssystemet</h2>
+                    <p>Vi använder modern högtrycksutrustning som effektivt rensar avloppsrör utan att skada dem. Vår
+                        metod
+                        förlänger livslängden på ditt avloppssystem och förebygger framtida problem.</p>
+                    <p>Med över 10 års erfarenhet vet vi exakt hur vi ska hantera olika typer av stopp och skador. Vi
+                        arbetar alltid professionellt och lämnar arbetsplatsen ren efter oss.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMAGE + TEXT SECTION 2 (reversed) -->
+        <section class="image-text-section" style="background: #fff;">
+            <div class="image-text-grid">
+                <div class="text-content">
+                    <h2>Kamerakontroll för att upptäcka problem tidigt</h2>
+                    <p>Med vår HD-kamerakontroll kan vi inspektera dina avloppsrör inifrån och upptäcka skador, rötter
+                        och
+                        problemområden innan de blir akuta.</p>
+                    <p>Du får en fullständig rapport med bilder och video som visar exakt var problemen finns. Detta gör
+                        det
+                        enkelt att planera för eventuella reparationer.</p>
+                </div>
+                <img src="renaror-images/camera-inspection.png" alt="Kamerakontroll">
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="cta-section" id="kontakt">
+            <div class="container">
+                <h2>Behöver du hjälp med avlopp?</h2>
+                <p>Ring oss så kommer vi snabbt på plats med vår moderna utrustning</p>
+                <div class="cta-buttons">
+                    <a href="tel:070-710 44 80" class="cta-button">Ring 070-710 44 80</a>
+                    <a onclick="openQuoteModal()" class="cta-secondary">Begär offert</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUOTE MODAL -->
+        <div id="quoteModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeQuoteModal()">&times;</button>
+                <h2>Begär Offert</h2>
+                <p>Fyll i formuläret så återkommer vi med en kostnadsfri offert</p>
+                <div class="success-message" id="quoteSuccess">
+                    ✓ Tack! Din offertförfrågan har skickats. Vi återkommer inom kort.
+                </div>
+                <form id="quoteForm" action="https://formsubmit.co/info@renaroristockholm.se" method="POST">
+                    <input type="hidden" name="_subject" value="Ny offertförfrågan från Rena Rör">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+
+                    <div class="form-group">
+                        <label for="quote-name">Namn *</label>
+                        <input type="text" id="quote-name" name="Namn" required>
+                        <span class="error-message">Vänligen ange ditt namn</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quote-email">E-post *</label>
+                        <input type="email" id="quote-email" name="E-post" required>
+                        <span class="error-message">Vänligen ange en giltig e-postadress</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quote-phone">Telefon *</label>
+                        <input type="tel" id="quote-phone" name="Telefon" required>
+                        <span class="error-message">Vänligen ange ditt telefonnummer</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quote-service">Typ av tjänst *</label>
+                        <select id="quote-service" name="Tjänst" required>
+                            <option value="">Välj tjänst...</option>
+                            <option value="Högtrycksspolning">Högtrycksspolning</option>
+                            <option value="Kamerakontroll">Kamerakontroll</option>
+                            <option value="BRF & Företag">BRF & Företag</option>
+                            <option value="Akutjour">Akutjour 24/7</option>
+                            <option value="Annat">Annat</option>
+                        </select>
+                        <span class="error-message">Vänligen välj en tjänst</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quote-address">Adress</label>
+                        <input type="text" id="quote-address" name="Adress">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quote-message">Meddelande</label>
+                        <textarea id="quote-message" name="Meddelande" placeholder="Beskriv ditt ärende..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Skicka offertförfrågan</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- INQUIRY MODAL -->
+        <div id="inquiryModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeInquiryModal()">&times;</button>
+                <h2>Skicka Förfrågan</h2>
+                <p>Har du frågor? Fyll i formuläret så hör vi av oss</p>
+                <div class="success-message" id="inquirySuccess">
+                    ✓ Tack! Din förfrågan har skickats. Vi återkommer inom kort.
+                </div>
+                <form id="inquiryForm" action="https://formsubmit.co/info@renaroristockholm.se" method="POST">
+                    <input type="hidden" name="_subject" value="Ny förfrågan från Rena Rör">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+
+                    <div class="form-group">
+                        <label for="inquiry-name">Namn *</label>
+                        <input type="text" id="inquiry-name" name="Namn" required>
+                        <span class="error-message">Vänligen ange ditt namn</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiry-email">E-post *</label>
+                        <input type="email" id="inquiry-email" name="E-post" required>
+                        <span class="error-message">Vänligen ange en giltig e-postadress</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiry-phone">Telefon</label>
+                        <input type="tel" id="inquiry-phone" name="Telefon">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiry-subject">Ämne *</label>
+                        <input type="text" id="inquiry-subject" name="Ämne" required>
+                        <span class="error-message">Vänligen ange ett ämne</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiry-message">Meddelande *</label>
+                        <textarea id="inquiry-message" name="Meddelande" required
+                            placeholder="Skriv ditt meddelande här..."></textarea>
+                        <span class="error-message">Vänligen skriv ett meddelande</span>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Skicka förfrågan</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Rena Rör</h4>
+                    <p style="color: #bbb; line-height: 1.8;">
+                        Professionell avloppsspolning och rensning sedan 2015.<br>
+                        Vi täcker hela Stockholms län.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Tjänster</h4>
+                    <ul>
+                        <li><a href="#">Högtrycksspolning</a></li>
+                        <li><a href="#">Kamerakontroll</a></li>
+                        <li><a href="#">BRF-service</a></li>
+                        <li><a href="#">Akutjour</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Företaget</h4>
+                    <ul>
+                        <li><a href="#om-oss">Om oss</a></li>
+                        <li><a href="#">Våra värden</a></li>
+                        <li><a href="#">Karriär</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li><a href="tel:070-710 44 80">070-710 44 80</a></li>
+                        <li><a href="mailto:info@renaroristockholm.se">info@renaroristockholm.se</a></li>
+                        <li style="color: #bbb; margin-top: 10px;">Stockholm med omnejd</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Rena Rör. Org.nr: XXX XXX-XXXX</p>
+            </div>
+        </footer>
+
+        <script>
+            // Mobile menu toggle
+            function toggleMenu() {
+                const navMenu = document.getElementById('navMenu');
+                const hamburger = document.querySelector('.hamburger');
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            }
+
+            // Modal functions
+            function openQuoteModal() {
+                document.getElementById('quoteModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeQuoteModal() {
+                document.getElementById('quoteModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            function openInquiryModal() {
+                document.getElementById('inquiryModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeInquiryModal() {
+                document.getElementById('inquiryModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            // Close modal on outside click
+            window.onclick = function (event) {
+                const quoteModal = document.getElementById('quoteModal');
+                const inquiryModal = document.getElementById('inquiryModal');
+                if (event.target === quoteModal) {
+                    closeQuoteModal();
+                }
+                if (event.target === inquiryModal) {
+                    closeInquiryModal();
+                }
+            }
+
+            // Form validation and submission
+            document.getElementById('quoteForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Basic validation
+                let isValid = true;
+                const formGroups = this.querySelectorAll('.form-group');
+
+                formGroups.forEach(group => {
+                    const input = group.querySelector('input, select, textarea');
+                    if (input.hasAttribute('required') && !input.value.trim()) {
+                        group.classList.add('error');
+                        isValid = false;
+                    } else {
+                        group.classList.remove('error');
+                    }
+                });
+
+                if (isValid) {
+                    // Submit form
+                    this.submit();
+                }
+            });
+
+            document.getElementById('inquiryForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Basic validation
+                let isValid = true;
+                const formGroups = this.querySelectorAll('.form-group');
+
+                formGroups.forEach(group => {
+                    const input = group.querySelector('input, select, textarea');
+                    if (input.hasAttribute('required') && !input.value.trim()) {
+                        group.classList.add('error');
+                        isValid = false;
+                    } else {
+                        group.classList.remove('error');
+                    }
+                });
+
+                if (isValid) {
+                    // Submit form
+                    this.submit();
+                }
+            });
+
+            // Remove error class on input
+            document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(input => {
+                input.addEventListener('input', function () {
+                    this.closest('.form-group').classList.remove('error');
+                });
+            });
+
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe service cards
+            document.querySelectorAll('.service-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        </script>
+</body>
+
+</html>
